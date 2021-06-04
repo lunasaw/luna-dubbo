@@ -19,7 +19,7 @@ public class UserController {
 
     @GetMapping("/ins")
     public String ins() {
-        orderService.ins();
+        orderService.ins("userId");
         return "ins";
     }
 

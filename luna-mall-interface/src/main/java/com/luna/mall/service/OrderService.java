@@ -6,7 +6,7 @@ package com.luna.mall.service;
  */
 public interface OrderService {
 
-    public void ins();
+    public String ins(String userId);
 
     public void del();
 

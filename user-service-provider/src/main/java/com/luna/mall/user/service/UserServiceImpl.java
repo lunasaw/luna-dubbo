@@ -2,12 +2,14 @@ package com.luna.mall.user.service;
 
 import com.luna.mall.service.UserService;
 import org.apache.dubbo.config.annotation.DubboService;
+import org.springframework.stereotype.Service;
 
 /**
  * @author luna
  * 2021/6/4
  */
 @DubboService(version = "1.0.0")
+@Service
 public class UserServiceImpl implements UserService {
 
     @Override

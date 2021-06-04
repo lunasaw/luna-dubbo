@@ -6,29 +6,20 @@ spring:
   application:
     name: luna-mall
 
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
-    driver-class-name: com.mysql.cj.jdbc.Driver              # mysql驱动包
-    url: jdbc:mysql://127.0.0.1:3306/luna-cloud?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
-    username: root
-    password:
-
-mybatis:
-  mapperLocations: classpath:mapper/*.xml
-  type-aliases-package: com.luna.commons.entities    # 所有Entity别名类所在包
-
 dubbo:
   application:
     id: luna-mail
     name: luna-mail
     logger: log4j
-  protocol:
-    name: dubbo
-    port: -1
-  provider:
-    loadbalance: roundrobin
-    threadpool: fixed
-    threads: 10
+  consumer:
+    # 启动服务检查
+    check: false
+    # 重试次数（相同服务名的时候可以重试其他相同的服务名）幂等（多次操作执行的结果一致）操作 不包含第一次
+    retries: 3
+    # 超时报错
+    timeout: 3000
+  monitor:
+    protocol: registry
   registry:
     address: zookeeper://localhost:2181
     timeout: 25000

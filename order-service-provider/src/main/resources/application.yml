@@ -30,6 +30,8 @@ dubbo:
     loadbalance: roundrobin
     threadpool: fixed
     threads: 10
+  monitor:
+    protocol: registry
   registry:
     address: zookeeper://localhost:2181
     timeout: 25000
